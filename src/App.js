@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import List from './components/List';
+import { foodData } from './foodData';
+
+
+
 
 function App() {
+  const [foodCount, setFoodCount] = useState(foodData)
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <h1>Food Counter App By Philip Ifeanyi</h1>
+      <section className='container'>
+      <h3 className='h3item'>{foodCount.length} Food Counted for today</h3>
+        <List foodCount={foodCount}  setFoodCount={setFoodCount} />
+      </section>
+      <button className='btnitem' onClick={() => setFoodCount([])}>Clear all</button>
+    </main>
   );
 }
 
