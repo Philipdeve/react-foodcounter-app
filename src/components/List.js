@@ -1,11 +1,8 @@
 import React from 'react';
 
-const List = ({ foodCount, setFoodCount }) => {
+const List = ({ foodCount, removeItem }) => {
 
-  const removeItem = (id) => {
-    let deleteFood = foodCount.filter((food) => food.id !== id);
-    setFoodCount(deleteFood);
-  };
+
   return (
      <>
       {foodCount.map((food) => {
